@@ -1,14 +1,7 @@
 
 <template>
   <div>
-    <el-form
-      :model="ruleForm"
-      :rules="rules"
-      ref="ruleForm"
-      label-width="100px"
-      class="demo-ruleForm"
-      size="mini"
-    >
+    <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm" size="mini">
       <el-form-item label="主题" prop="title">
         <el-input v-model="ruleForm.title"></el-input>
       </el-form-item>
@@ -17,7 +10,7 @@
       </el-form-item>
       <el-form-item label="落地页" prop="targetUrl">
         <el-input v-model="ruleForm.targetUrl"></el-input>
-        <span style="color:red;font-size:12px;">B端 落地页链接不是必填</span>
+        <span style="color:red;font-size:12px;">C端 落地页链接不是必填</span>
       </el-form-item>
     </el-form>
   </div>
@@ -31,7 +24,7 @@ export default {
       ruleForm: {
         content: "",
         title: "",
-        targetUrl:''
+        targetUrl: ''
       },
       rules: {
         content: [
