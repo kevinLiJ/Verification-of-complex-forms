@@ -5,6 +5,11 @@ export default function (WrappedComponent) {
   return {
     inheritAttrs: false,
 
+    // component: {
+    //   ElForm: Form,
+    //   Embedded: WrappedComponent,
+    // },
+
     props: {
       hocProps: {
         type: Object,
@@ -17,16 +22,25 @@ export default function (WrappedComponent) {
     },
 
     methods: {
-      ...Form.methods,
+      validate () {
+        return this.$refs.ruleForm.validate();
+      },
 
       getData () {
         return this.hocProps.model;
       },
     },
 
+    // template: `
+    //   <el-form ref="ruleForm" class="demo-ruleForm" v-bind="hocProps">
+    //     <wrapped-component v-on="$listeners" v-bind="$attrs"></wrapped-component>
+    //   </el-form>
+    // `,
+
     render (h) {
       return h(Form,
         {
+          ref: 'ruleForm',
           class: ['demo-ruleForm'],
           props: this.hocProps,
         },

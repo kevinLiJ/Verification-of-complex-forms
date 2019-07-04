@@ -14,6 +14,7 @@
         v-bind="item"
         :key="index"
         :is="item.component"
+        v-on="item.on"
       />
     </template>
   
@@ -66,11 +67,16 @@ export default {
             options: [
               { label: "B端", value: "1" },
               { label: "C端", value: "2" }
-            ]
+            ],
           },
           hocProps: {
             prop: "customerType",
             label: "人群类型",
+          },
+          on: {
+            'selectClick': (value) => {
+              console.log(value)
+            },
           },
         },
         {
@@ -218,7 +224,7 @@ export default {
     submitForm1() {
       const templateType = 'mapForm';
       const validate1 = this.$refs["indexForm"].validate();
-      const validate2 = this.$refs[templateType].vaildate();
+      const validate2 = this.$refs[templateType].validate();
 
       // 父子表单一起验证
       Promise.all([validate1, validate2])

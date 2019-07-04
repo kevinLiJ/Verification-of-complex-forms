@@ -1,5 +1,5 @@
 <template>
-  <el-select v-bind="$attrs" v-on="$listeners">
+  <el-select v-bind="$attrs" v-on="$listeners" @click.native="$emit('selectClick', '---')">
     <el-option
       v-for="item in options"
       v-bind="item"
