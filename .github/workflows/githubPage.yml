@@ -18,4 +18,4 @@ jobs:
       env:
         ACCESS_TOKEN: 2e8eba0fdc0a36508b087ad4df854971b4e4c354
         BRANCH: gh-pages
-        FOLDER: .
+        FOLDER: docs
